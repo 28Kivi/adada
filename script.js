@@ -741,7 +741,7 @@ function selectPaymentMethod(method) {
             content = `
                 <div class="payment-info">
                     <h4>Banka Transfer Bilgileri</h4>
-                    <p><strong>Banka:</strong> <span>Türkiye İş Bankası</span></p>
+                    <p><strong>Banka:</strong> <span>Türkiye Finans</span></p>
                     <p><strong>IBAN:</strong> <span>TR33 0006 4000 0011 2345 6789 01</span></p>
                     <p><strong>Ad Soyad:</strong> <span>Discord Bot Premium</span></p>
                     <p><strong>Açıklama:</strong> <span>Lütfen açıklama kısmına Discord kullanıcı adınızı yazınız</span></p>
