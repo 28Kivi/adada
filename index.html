@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛡️ Roblox Bot Premium</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Announcement Banner -->
+    <div class="top-announcement">
+        <div class="announcement-scroll" id="topAnnouncementScroll">
+            Hoş geldiniz! Premium Roblox bot sistemimizle gruplarınızı abuse'den koruyun! 🛡️ Şimdi %50 indirimli paketler mevcut!
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>Roblox Bot Premium</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#features" class="nav-link">Paketler</a>
+                <a href="#announcements" class="nav-link">Duyurular</a>
+                <a href="#contact" class="nav-link">İletişim</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Premium Kalitede Roblox Abusesine Karşı Önlem</h1>
+            <p>Roblox gruplarınızı abuse'ye karşı otomatik önlem</p>
+            
+            <div class="features-grid">
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Abuse Koruması</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-users"></i>
+                    <span>Grup Yönetimi</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-cog"></i>
+                    <span>Otomatik Sistem</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Güvenlik Raporları</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Announcements Section -->
+    <section id="announcements" class="announcements">
+        <div class="container">
+            <h2>Duyurular</h2>
+            <div id="announcementsList" class="announcements-list">
+                <!-- Announcements will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="features" class="packages">
+        <div class="container">
+            <h2>Premium Paketler</h2>
+            <div id="packagesGrid" class="packages-grid">
+                <!-- Packages will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>İletişim</h2>
+            <p>Bizimle iletişime geçin: <strong>iletisim@buy.smmkiwi.com</strong></p>
+            
+            <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                    <label for="email">E-posta Adresiniz:</label>
+                    <input type="email" id="email" name="email" required placeholder="ornek@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Başlık:</label>
+                    <input type="text" id="subject" name="subject" required placeholder="Konu başlığı">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Mesajınız:</label>
+                    <div class="message-editor">
+                        <div class="editor-toolbar">
+                            <button type="button" onclick="formatText('bold')"><strong>B</strong></button>
+                            <button type="button" onclick="formatText('italic')"><em>I</em></button>
+                            <button type="button" onclick="formatText('underline')"><u>U</u></button>
+                        </div>
+                        <textarea id="message" name="message" required placeholder="Mesajınızı buraya yazın..."></textarea>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i>
+                    Mesaj Gönder
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Admin Panel Modal -->
+    <div id="adminModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Admin Panel</h2>
+                <span class="close" onclick="closeModal('adminModal')">&times;</span>
+            </div>
+            
+            <div class="admin-tabs">
+                <button class="tab-btn active" onclick="showTab('announcements-tab')">
+                    <i class="fas fa-bullhorn"></i>
+                    Duyurular
+                </button>
+                <button class="tab-btn" onclick="showTab('packages-tab')">
+                    <i class="fas fa-box"></i>
+                    Paketler
+                </button>
+                <button class="tab-btn" onclick="showTab('messages-tab')">
+                    <i class="fas fa-envelope"></i>
+                    Mesajlar
+                </button>
+            </div>
+
+            <!-- Announcements Tab -->
+            <div id="announcements-tab" class="tab-content active">
+                <div class="admin-section">
+                    <h3>Duyuru Ekle</h3>
+                    <form id="announcementForm">
+                        <textarea id="announcementText" placeholder="Duyuru metnini girin..." required></textarea>
+                        <button type="submit">Duyuru Ekle</button>
+                    </form>
+                </div>
+                
+                <div class="admin-section">
+                    <h3>Mevcut Duyurular</h3>
+                    <div id="adminAnnouncementsList" class="admin-announcements">
+                        <!-- Admin announcements list -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Packages Tab -->
+            <div id="packages-tab" class="tab-content">
+                <div class="admin-section">
+                    <h3>Paket Yönetimi</h3>
+                    <form id="packageForm">
+                        <div class="form-row">
+                            <input type="text" id="packageName" placeholder="Paket Adı" required>
+                            <input type="number" id="packagePrice" placeholder="Fiyat (₺)" required>
+                        </div>
+                        <div class="form-row">
+                            <input type="text" id="packageDuration" placeholder="Süre (örn: 1 Ay)" required>
+                            <select id="packageType">
+                                <option value="basic">Başlangıç</option>
+                                <option value="standard">Standart</option>
+                                <option value="premium">Premium</option>
+                                <option value="elite">Elit</option>
+                                <option value="unlimited">Sınırsız</option>
+                            </select>
+                        </div>
+                        <textarea id="packageFeatures" placeholder="Özellikler (her satırda bir özellik)" required></textarea>
+                        <button type="submit">Paket Ekle/Güncelle</button>
+                    </form>
+                </div>
+                
+                <div class="admin-section">
+                    <h3>Mevcut Paketler</h3>
+                    <div id="adminPackagesList" class="admin-packages">
+                        <!-- Admin packages list -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Messages Tab -->
+            <div id="messages-tab" class="tab-content">
+                <div class="admin-section">
+                    <h3>Gelen Mesajlar</h3>
+                    <div id="adminMessagesList" class="admin-messages">
+                        <!-- Messages list -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Purchase Modal -->
+    <div id="purchaseModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Paket Yönetimi</h2>
+                <span class="close" onclick="closeModal('purchaseModal')">&times;</span>
+            </div>
+            
+            <div id="purchaseContent">
+                <!-- Purchase form will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
